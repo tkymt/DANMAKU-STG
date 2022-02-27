@@ -199,7 +199,8 @@ class InputReceiver {
         this._keyMap = new Map();
         this._prevKeyMap = new Map();
 
-        addEventListener('keyDown', (ke) => this._keyMap.set(ke.key, true));
+		// 追加するイベントは全部小文字です。
+        addEventListener('keydown', (ke) => this._keyMap.set(ke.key, true));
         addEventListener('keyup', (ke) => this._keyMap.set(ke.key, false));
     }
 
