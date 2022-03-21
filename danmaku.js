@@ -24,10 +24,26 @@ class Fighter extends SpriteActor {
     }
 
     update(gameInfo, input) {
-        if(input.getKey('ArrowUp')) { this.y -= this.speed; }
-        if(input.getKey('ArrowDown')) { this.y += this.speed; }
-        if(input.getKey('ArrowRight')) { this.x += this.speed; }
-        if(input.getKey('ArrowLeft')) { this.x -= this.speed; }
+        if(input.getKey('ArrowUp')) 
+		{
+			this.y -= this.speed;
+			this.sprite.rectangle = new Rectangle(0, 0, 16, 16);
+		}
+        if(input.getKey('ArrowDown'))
+		{
+			this.y += this.speed;
+			/* 下向きだけじゃなく左向きも表示されるバグがある。
+			たぶんsprite.pingの時機の位置に問題がある。はよ直せ */
+			this.sprite.rectangle = new Rectangle(17, 0, 32, 16);
+		}
+        if(input.getKey('ArrowLeft')) {
+			this.x -= this.speed;
+			this.sprite.rectangle = new Rectangle(33, 0, 48, 16);
+		}
+        if(input.getKey('ArrowRight')) { 
+			this.x += this.speed;
+			this.sprite.rectangle = new Rectangle(49, 0, 64, 16);
+		}
     }
 }
 
