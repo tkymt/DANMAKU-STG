@@ -32,17 +32,17 @@ class Fighter extends SpriteActor {
         if(input.getKey('ArrowDown'))
 		{
 			this.y += this.speed;
-			/* 下向きだけじゃなく左向きも表示されるバグがある。
-			たぶんsprite.pingの時機の位置に問題がある。はよ直せ */
-			this.sprite.rectangle = new Rectangle(17, 0, 32, 16);
+			// x,yから何ピクセルの範囲を描画するか
+			// 絶対座標じゃなかったわ　すまん
+			this.sprite.rectangle = new Rectangle(16, 0, 16, 16);
 		}
         if(input.getKey('ArrowLeft')) {
 			this.x -= this.speed;
-			this.sprite.rectangle = new Rectangle(33, 0, 48, 16);
+			this.sprite.rectangle = new Rectangle(32, 0, 16, 16);
 		}
         if(input.getKey('ArrowRight')) { 
 			this.x += this.speed;
-			this.sprite.rectangle = new Rectangle(49, 0, 64, 16);
+			this.sprite.rectangle = new Rectangle(48, 0, 16, 16);
 		}
     }
 }
